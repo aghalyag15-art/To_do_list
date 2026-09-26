@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ledger — A To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <main class="page">
+    <header class="ledger-head">
+      <div class="ledger-head__title">
+        <span class="ledger-head__mark">✎</span>
+        <h1>Ledger</h1>
+      </div>
+      <p class="ledger-head__sub">Keep a running record of what needs doing.</p>
+    </header>
+
+    <section class="entry-card" aria-label="Add a new task">
+      <form id="task-form" class="entry-form" autocomplete="off">
+        <input
+          type="text"
+          id="task-input"
+          class="entry-form__input"
+          placeholder="Write a new entry…"
+          maxlength="120"
+          required
+        />
+        <button type="submit" class="entry-form__submit">Add entry</button>
+      </form>
+    </section>
+
+    <section class="board-card">
+      <div class="board-toolbar">
+        <div class="filters" role="tablist" aria-label="Filter tasks">
+          <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="active" role="tab" aria-selected="false">Active</button>
+          <button class="filter-btn" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+        </div>
+        <button id="clear-completed" class="clear-btn">Clear completed</button>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+
+      <p id="empty-state" class="empty-state" hidden>
+        Nothing here yet — the page is blank. Add your first entry above.
+      </p>
+
+      <footer class="board-footer">
+        <span id="task-count">0 items</span>
+        <span class="board-footer__divider">·</span>
+        <span id="task-status">saved locally in this browser</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
